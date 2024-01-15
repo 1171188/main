@@ -39,6 +39,7 @@ h1{
 
 .logo-se{
     max-width: 10rem;
+    margin-top: 0px;
 }
 
 .nav-bar-se a {
@@ -48,6 +49,7 @@ h1{
     padding: 14px 16px;
     text-decoration: underline;
     font-size: 17px;
+    margin-top: 5px;
 }
   
 .nav-bar-se a:hover {
@@ -71,13 +73,14 @@ h1{
 .square-container > div{
     margin: 2rem 2rem;
     align-items: left;
-    border: 2px solid #fff;
+    border: 2px solid #ffff;
     padding: 0px 20px;
     border-radius: 12px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
     box-sizing: border-box;
     color: black;
     min-width: 150px;
+    background-color: #fff;
 }
 
 .big-text{
@@ -112,7 +115,8 @@ h1{
 .Files > div{
     margin: 2rem 2rem;
     align-items: left;
-    border: 2px solid #fff;
+    border: 2px solid white;
+    background-color: white;
     padding: 0px 20px;
     border-radius: 12px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
@@ -128,11 +132,23 @@ h1{
 }
 .f2{
     grid-row: 1 / span 1;
-    grid-column: 2 / span 2;
+    grid-column: 2 / span 1;
 }
 .f3{
     grid-row: 2 / span 2;
     grid-column: 1 / span 3;
+}
+.f4{
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+}
+.f5{
+    grid-row: 2 / span 2;
+    grid-column: 1 / span 1;
+}
+.f6{
+    grid-row: 2 / span 2;
+    grid-column: 2/ span 1;
 }
 
 
@@ -161,26 +177,6 @@ h1{
 
  /*/////////////////// respansive html \\\\\\\\\\\\\\\\\\*/
 
-
-
-@media (max-width:992px){
-    .countdown-container > div{
-        margin: 0 1rem;
-    }
-}
-@media (max-width:992px){
-    .countdown-container{
-        flex-wrap: wrap;
-    }
-    .countdown-container > div{
-        margin: 1rem auto;
-        max-width: 150px;
-    }
-    .title{
-        font-size: 1.5rem;
-    }
-
-}
 
 
  
@@ -217,8 +213,13 @@ h1{
         margin-bottom: 40%;
     }
 
+    .nav-bar-se li{
+        padding: 0px 10px;
+    }
+
     .nav-bar-se a {
         font-size: 16px;
+        padding: 14px 5px;
     }
 
     .logo-se{
@@ -275,6 +276,14 @@ h1{
     .f3{
         overflow: hidden;
         word-break: break-all;
+    }
+    .f5{
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 2;
+    }
+    .f6{
+        grid-row: 3 / span 1;
+        grid-column: 1/ span 2;
     }
 
 
