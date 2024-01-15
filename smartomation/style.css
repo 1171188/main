@@ -152,15 +152,14 @@ h1{
 }
 
 
-/* countdown2 */
-
-
- /*/////////////////// gaymode html \\\\\\\\\\\\\\\\\\*/
-
- 
 
 
 
+
+
+
+
+ /*/////////////////// respansive html \\\\\\\\\\\\\\\\\\*/
 
 
 
@@ -217,101 +216,82 @@ h1{
         margin-top: 15%;
         margin-bottom: 40%;
     }
-    
-    /* progress bar */
-    .progress-bar{
-        width: 300px;
-        height: 3em;
+
+    .nav-bar-se a {
+        font-size: 16px;
+    }
+
+    .logo-se{
+        max-width: 6.5rem;
     }
     
-    /* confimrmed */
-    
-    .true{
-        top: 18%;
-        left: 5%;
-        width: 80%;
-        max-height: 2px;
-        grid-template-columns: 1fr 1fr;
-        padding-left: 50px;
-        padding-right: 25px;
-        
-        background-color: greenyellow;
-        border-radius: 2rem;
-        margin-left: 5%;
-        margin-right: 5%;
+    /* keuze menu */
+    .square-container{
+        margin-bottom: 30%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
     }
-    
-    .checkmarkimg{
-        max-width: 30px;
-        margin-left: 20px;
-        margin-top: -30px;
-        max-width: auto;
-    }
-    
-    .confirmed{
-        font-size: 150%;
-        margin-top: -30px;
-        margin-left: -10px;
-    }
-    
-    .happy{
-        max-width: 60%;
-        margin-left: 20%;
-        margin-top: 20%;
-    }
-    /* declined  */
-    .false{
-        top: 18%;
-        left: 5%;
-        width: 80%;
-        max-height: 2px;
-        grid-template-columns: 1fr 1fr;
-        padding-left: 50px;
-        padding-right: 25px;
-        
-        background-color: red;
-        border-radius: 2rem;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-    
-    
-    /* countdown */
-    .textcount{
-        margin-top: 72%;
-        margin-bottom: 2%;
-    }
-    .countdown-container{
-        margin-bottom: 126%;
-    }
-    
-    .big-text{
-        font-size: 3rem;
-    }
-    
-    .countdown-container > div{
-        margin: 0.2 0.5rem;
+
+    .square-container > div{
+        margin: 2rem 2rem;
+        align-items: left;
         border: 2px solid #fff;
         padding: 0px 20px;
         border-radius: 12px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+        box-sizing: border-box;
         min-width: 150px;
     }
 
-    .H-tester{
+    .big-text{
+        font-size: 2rem;
+    }
+
+    .big-img{
+        max-width: 100%;
+    }
+
+    /* Files */
+    .Files{
         margin-bottom: 5%;
-        margin-top: 50%;
+        display: grid;
+    }
+
+    .Files > div{
+        margin: 2rem 1rem;
+        align-items: left;
+        border: 2px solid #fff;
+        padding: 0px 20px;
+        border-radius: 12px;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+        box-sizing: border-box;
+        color: black;
+        min-width: 150px;
+    }
+    .f1{
+        word-break: break-all;
+    }
+
+    .f3{
+        overflow: hidden;
+        word-break: break-all;
     }
 
 
-    /*gay mode */
-    .B-count-container{
-        padding-top: 80%; 
-        padding-bottom: 30%; 
+    .title-files{
+        font-size: 2rem;
+        margin-top: 4rem;
     }
 
-    .B-count{
-        font-size: 4rem;
+    .paragraph-files{
+        font-size: 1.5rem;
     }
+
+    .img-files{
+        max-width: 100%;
+        align-items: center;
+    }
+    
 
 }
 
@@ -329,79 +309,6 @@ h1{
         margin-bottom: 40%;
     }
     
-    /* progress bar */
-    .progress-bar{
-        width: 300px;
-        height: 4em;
-        border-radius: 2em;
-    }
-
-    .progress-bar::before{
-        content: attr(data-label);
-        display: flex;
-        align-items: center;
-        position: absolute;
-        left: .5em;
-        top: .5em;
-        bottom: .5em;
-        width: calc(var(--width, 0) * 1.2%);
-        min-width: .01rem;
-        max-width: calc(100% - 3em);
-        background-color: grey;
-        border-radius: 1.5em;
-        padding: 1em;
-    }
-    
-    /* confimrmed */
-    
-    .true{
-        top: 25%;
-    }
-    
-    .checkmarkimg{
-        max-width: 30px;
-        max-width: auto;
-        transform: translate(-50%, 50%);
-    }
-    
-    .confirmed{
-        font-size: 150%;
-    }
-    
-    .happy{
-        max-width: 100%;
-        margin-left: 0%;
-        margin-top: 20%;
-    }
-    /* declined */
-    
-    .false{
-        top: 25%;
-    }
-    
-    
-    /* countdown */
-    .textcount{
-        margin-top: 56%;
-        margin-bottom: 2%;
-    }
-    .countdown-container{
-        margin-bottom: 100%;
-    }
-
-    /* gaymode switch */
-    .gaymode {
-        display: grid;
-        grid-template-columns: 100px max-content max-content 100px;
-        grid-gap: 5px;
-        margin-left: 10px;
-    }
-
-    /*gay mode */
-    .B-count-container{
-        padding-top: 50%; 
-        padding-bottom: 30%; 
-    }
     
 
 
@@ -423,72 +330,5 @@ h1{
         margin-bottom: 40%;
     }
     
-    /* progress bar */
-    .progress-bar{
-        width: 300px;
-        height: 3em;
-    }
-    
-    /* confimrmed */
-    
-    .true{
-        top: 22%;
-    }
-    
-    .checkmarkimg{
-        max-width: 30px;
-        max-width: auto;
-        transform: translate(-50%, 50%);
-    }
-    
-    .confirmed{
-        font-size: 150%;
-    }
-    
-    .happy{
-        max-width: 60%;
-        margin-left: 20%;
-        margin-top: 20%;
-    }
-    /*   Declined */
-    .false{
-        top: 22%;
-    }
-    
-    
-    /* countdown */
-    .textcount{
-        margin-top: 72%;
-        margin-bottom: 2%;
-    }
-    .countdown-container{
-        margin-bottom: 126%;
-    }
-    
-    .big-text{
-        font-size: 3rem;
-    }
-    
-    .countdown-container > div{
-        margin: 0.2 0.5rem;
-        border: 2px solid #fff;
-        padding: 0px 20px;
-        border-radius: 12px;
-        min-width: 150px;
-    }
-
-
-    /* gaymode switch */
-    .gaymode {
-        display: grid;
-        grid-template-columns: 100px max-content max-content 100px;
-        grid-gap: 5px;
-        margin-left: 10px;
-    }
-
-    .B-count-container{
-        padding-top: 80%; 
-        padding-bottom: 30%; 
-    }
 
 }
