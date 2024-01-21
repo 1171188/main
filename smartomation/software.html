@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="script.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="favicon.gif" type="image/gif" >
+        <link rel="icon" href="img/Logo-favi.png" type="image/png">
     </head>
     <body>
         <div>
@@ -24,16 +24,24 @@
                 <div class="Files">
                     <div class="f1">
                         <p class="paragraph-files">Files:</p>
-                        <a class="img-files" href="img/Final-project.ino">Full code</a>
+                        <a class="img-files" href="img/Final-project.ino">Full code</a>    
                         <a href="img/state diagram.png">State diagram</a>
+                        <a href="img/downloads/Home Assistant interface code and tutorial video.zip">Home Assistant interface code</a>
 
                         <p class="paragraph-files">libraries</p>
-                        <p>The libraries used in this project where: <a href="https://github.com/Legion2/Somfy_Remote_Lib">Somfy_Remote_Lib</a>, this library is for connecting to the Somfy roller shutters by mimicking the official remote. And <a href="https://github.com/plapointe6/EspMQTTClient">EspMQTTClient</a>, to establish a MQTT connection with Home Assistant.</p>
+                        <p>The libraries used in this project where: <a href="https://github.com/Legion2/Somfy_Remote_Lib">Somfy_Remote_Lib</a>, this library is for connecting to the Somfy roller shutters by mimicking the official remote. And <a href="https://github.com/plapointe6/EspMQTTClient">EspMQTTClient</a>, to establish a MQTT connection with Home Assistant.</p><br>
+                        <p>To use the Esp32 with Arduino IDE we need to add the <a href="https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json">Esp32 boards manager URL</a> in Arduino IDE --> preferences --> Additional boards manager URL’s (paste URL here).</p>
                     </div>
                     <div class="f2">
                         <p class="paragraph-files">State diagram:</p>
                         <img class="img-files" src="img/state diagram.png"><br>
                         <a class="big-more" href="img/state diagram.png">Download</a>
+                    </div>
+                    <div class="f7">
+                      <p class="paragraph-files">Home Assistant:</p>
+                      <img class="img-files" src="img/Interface HA (tab 2).png"><br>
+                      <p>The download button bellow contains the Home Assistant interface code and a video tutorial showing how you can copy the interface.</p><br>
+                      <a class="big-more" href="img/state diagram.png">Download</a>
                     </div>
                     <div class="f3">
                       <p class="paragraph-files">Full code:</p>
@@ -52,8 +60,7 @@
 #define REMOTE2 0x25b5d5
 #define REMOTE3 0xc6c78f
 #define REMOTE4 0x59714b
-#define DEBUG
-#define ESP8266
+#define ESP32
 
 
 //               Alle int's
@@ -63,13 +70,13 @@ int RS = 0; //idetificatie van de 4 remotes en de state
 
 //               SETUP
 EspMQTTClient client(
-  "wifi-name",
-  "wifi-password",
-  "192.168.1.97",  // MQTT Broker server ip
-  "esp",   // Can be omitted if not needed
-  "ESP-1171188",   // Can be omitted if not needed
-  "TestESP",     // Client name that uniquely identify your device
-  1883              // The MQTT port, default to 1883. this line can be omitted
+  "WifiSSID",       // Wifi naam
+  "WifiPassword",   // Wifi wachtwoord
+  "192.168.1.100",  // MQTT Broker server ip
+  "MQTTUsername",   // De MQTT gebruikersnaam
+  "MQTTPassword",   // De MQTT wachtwoord
+  "TestClient",     // Client naam dat jou toestel een unieke identificatie geeft
+  1883              // De MQTT poort, default naar 1883
 );
 
 EEPROMRollingCodeStorage rollingCodeStorage1(0);
@@ -86,17 +93,17 @@ SomfyRemote somfyRemote4(EMITTER_GPIO, REMOTE4, &rollingCodeStorage4);
 void setup() {
   Serial.begin(115200);
   pinMode(EMITTER_GPIO, OUTPUT);
-	digitalWrite(EMITTER_GPIO, LOW);
+  digitalWrite(EMITTER_GPIO, LOW);
 
 
   //somfy remote gedeelte
 #if defined(ESP32)
-	if (!EEPROM.begin(4)) {
-		Serial.println("failed to initialise EEPROM");
-	  delay(1000);
-	}
+  if (!EEPROM.begin(4)) {
+    Serial.println("failed to initialise EEPROM");
+    delay(1000);
+  }
   #elif defined(ESP8266)
-	EEPROM.begin(4);
+  EEPROM.begin(4);
 #endif
 
 
@@ -139,7 +146,7 @@ void onConnectionEstablished()
       }
     
 
-    if (payload[0] == '2') {            // filtert signaal voor remote 1
+    if (payload[0] == '2') {            // filtert signaal voor remote 2
         Serial.println("geslaagd");
 
         if (payload[1] == 'u'){         //bericht is up
@@ -181,7 +188,7 @@ void onConnectionEstablished()
         } 
       }
 
-      if (payload[0] == '4') {            // filtert signaal voor remote 3
+      if (payload[0] == '4') {            // filtert signaal voor remote 4
         Serial.println("geslaagd");
 
         if (payload[1] == 'u'){         //bericht is up
@@ -217,9 +224,7 @@ void loop() {
 
 // hier worden de berichten voor de gevraagde actie gefilterd en verzonden
 void rolluikZending(void) {
-  display.clearDisplay();
-  display.setTextSize(2);
-  display.setTextColor(WHITE);
+
   switch(RS) {
     //remote 1
     case 11:  // commmand 1
@@ -309,7 +314,7 @@ void rolluikZending(void) {
       delay(100);
       break;
   }
-}
+}                              
                         </code>
                     </pre>
                 </div>
